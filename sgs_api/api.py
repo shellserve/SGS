@@ -9,8 +9,10 @@ from flask_restful import Api
 
 from sgs_api.database import db
 from sgs_api.constants import PROJECT_ROOT, PROJECT_DB
-from sgs_api.resources.project_resources import ProjectResource, PROJECT_ENDPOINT
 from sgs_api.resources.user_resources import UserResource, USER_ENDPOINT
+from sgs_api.resources.project_resources import ProjectResource, PROJECT_ENDPOINT
+
+
 #TODO RE-Implement logging across different resource files.
 """    logging.basicConfig(
         level=logging.DEBUG,
