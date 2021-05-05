@@ -23,3 +23,12 @@ App layout
     * _plan_resource.py_
 
 Model files will define specific sql table implementations. Schema files allow client code to interface with Model objects. Resources allow us to define specic reactions to RESTFUL HTTP methods; GET, POST, DELETE, PUT, PATCH. Once a client is capable of creating a sufficinently detailed plan object with a dynamic number of action steps, and other features we deam necassarry.
+ 
+ To run, pip install -r requirements.txt and then python app.py.
+ So far the user creation post request and project creation post request have both been tested.
+ Example of json for a user POST
+  {
+   "email":"test@email.com"
+   "name":"user"
+   "password":"password"
+  }
