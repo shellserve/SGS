@@ -25,13 +25,13 @@ class ProjectResource(Resource):
     
     #UNTESTED    
     def _get_all_projects(self):
-        projects = Project.query.all()
+        projects = ProjectModel.query.all()
         projects_json = [ProjectSchema().dump(project) for project in projects]
         return projects_json
     
     #UNTESTED
-    def _get_project_by_owner(owner_id):
-        projects = Project.query.filter__by(owner_id=owner_id)
+    def _get_project_by_owner(self, owner_id):
+        projects = ProjectModel.query.filter_by(owner_id=owner_id)
         projects_json = [ProjectSchema().dump(project) for project in projects]
         return projects_json
 

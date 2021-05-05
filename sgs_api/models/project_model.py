@@ -8,6 +8,7 @@ class ProjectModel(db.Model):
     name = db.Column(db.String(100))
     objective = db.Column(db.String(1000))
     
+    plan = db.relationship("PlanModel")
     #__repr__ can be called just to get a quick glance at the model variables
     def __repr__(self):
         return (

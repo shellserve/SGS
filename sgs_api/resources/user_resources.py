@@ -17,22 +17,8 @@ DEV_TOKEN = ''.join(random.choice(string.ascii_letters + string.digits) for _ in
 #logger = logging.getLogger(__name__)
 
 class UserResource(Resource):
-    def get(self, email=None, password=None):
-        try:
-            return _get_api_key(email, password)
-        except NoResultFound:
-            abort(404, message="Incorrect Credentials")
-            
-    def _get_api_key(self, email, password):
-        user = UserModel.query.filter__by(email=email, password=generate_password_hash(password, 'sha256'))
-        user_json = UserSchema().dump(user)
-        
-        if not user_json:
-            #logger.warning("Incorrect Credentials Attempted!")
-            raise NoResultFound
-        
-        #logger.warning("Login Success!")
-        return DEV_TOKEN
+    def get(self, session=None):
+        pass
     
     def post(self):
         request_json = request.get_json()
