@@ -1,0 +1,6 @@
+*.log
+*.db
+sgs-venv
+.vscode
+__pycache__
+*.pyc
