@@ -23,13 +23,12 @@ class ProjectResource(Resource):
         except NoResultFound:
             abort(404, message="No projects by owner!")
     
-    #UNTESTED    
     def _get_all_projects(self):
         projects = ProjectModel.query.all()
         projects_json = [ProjectSchema().dump(project) for project in projects]
         return projects_json
     
-    #UNTESTED
+    
     def _get_project_by_owner(self, owner_id):
         projects = ProjectModel.query.filter_by(owner_id=owner_id)
         projects_json = [ProjectSchema().dump(project) for project in projects]

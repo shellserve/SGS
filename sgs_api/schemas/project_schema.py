@@ -7,7 +7,6 @@ class ProjectSchema(Schema):
     # this allows us to impement basic pre & post processing validation
     project_id = fields.Integer()
     owner_id = fields.String(allow_none=False)
-    owner = fields.Nested(UserSchema(), dump_only=True)
     name = fields.String(allow_none=False)
     objective = fields.String(allow_none=False)
     

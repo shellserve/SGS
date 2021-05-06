@@ -7,7 +7,6 @@ class UserSchema(Schema):
     password = fields.String(allow_none=False)
     name = fields.String(allow_none=False)
     
-
     @post_load
     def make_user(self, data, **kwargs):
         return UserModel(**data)
