@@ -10,7 +10,7 @@ from flask_restful import Api
 from sgs_api.database import db
 from sgs_api.constants import PROJECT_ROOT, PROJECT_DB
 
-from sgs_api.resources.user_resources import UserResource, USER_ENDPOINT
+from sgs_api.resources.user_resources import LoginResource, SignupResource, LOGIN_ENDPOINT, SIGNUP_ENDPOINT
 from sgs_api.resources.project_resources import ProjectResource, PROJECT_ENDPOINT
 from sgs_api.resources.plan_resources import PlanResource, PLAN_ENDPOINT
 from sgs_api.resources.action_resources import ActionResource, ACTION_ENDPOINT
@@ -36,8 +36,10 @@ def create_app(db_location):
     
     #This initializes a Api component for the app
     #We can add different api resources here passing an end/point and sometimes a get variable
+   
     api = Api(app)
-    api.add_resource(UserResource, USER_ENDPOINT)
+    api.add_resource(LoginResource, LOGIN_ENDPOINT)
+    api.add_resource(SignupResource, SIGNUP_ENDPOINT)
     api.add_resource(PlanResource, PLAN_ENDPOINT, f"{PLAN_ENDPOINT}/<id>")
     api.add_resource(ProjectResource, PROJECT_ENDPOINT, f"{PROJECT_ENDPOINT}/<id>")
     api.add_resource(ActionResource, ACTION_ENDPOINT)

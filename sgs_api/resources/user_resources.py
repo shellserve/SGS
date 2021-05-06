@@ -6,17 +6,55 @@ from flask import request
 from flask_restful import Resource, abort
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm.exc import NoResultFound
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 
 from sgs_api.database import db 
 from sgs_api.models.user_model import UserModel 
+from sgs_api.models.token_model import TokenModel
 from sgs_api.schemas.user_schema import UserSchema
 
-USER_ENDPOINT = "/sgs_api/auth"
+LOGIN_ENDPOINT = "/sgs_api/login"
+SIGNUP_ENDPOINT = "/sgs_api/signup"
 DEV_TOKEN = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(248))
 #logger = logging.getLogger(__name__)
 
-class UserResource(Resource):
+class LoginResource(Resource):
+    def get(self, session=None):
+        pass
+    
+    def post(self):
+        request_json = request.get_json()
+        if ('email' in request_json or 'name' in request_json) and 'password' in request_json:
+            user = UserModel.query.filter_by(email=request_json['email'], name=request_json['name']).first()
+            if user is None:
+                return {'message':'Incorrect Credentials!'}, 404
+            if check_password_hash(user.password, request_json['password']):
+                token = TokenModel(user.user_id)
+                db.session.add(token)
+                db.session.commit()
+                return {
+                    "token": token.value
+                }
+            
+            else:
+                return {'message':'Incorrect Credentials!'}, 404
+        else:
+            return {'message':'No Credentials!'}, 400
+                
+        request_json['password'] = generate_password_hash(request_json['password'])
+        user = UserSchema().load(request_json)
+        
+        try:
+            db.session.add(user)
+            db.session.commit()
+        
+        except IntegrityError as e:
+            abort(500, message="unexpected error")
+            
+        else:
+            return user.user_id, 201
+
+class SignupResource(Resource):
     def get(self, session=None):
         pass
     
@@ -33,8 +71,4 @@ class UserResource(Resource):
             abort(500, message="unexpected error")
             
         else:
-            return user.user_id, 201
-
-        
-        
-            
+            return user.user_id, 201          
