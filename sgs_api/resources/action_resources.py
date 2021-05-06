@@ -1,15 +1,16 @@
 from flask import request
-from flask_restful import Resource, abort
+from flask_restful import abort
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm.exc import NoResultFound
 
 from sgs_api.database import db
+from sgs_api.auth import ProtectedResource
 from sgs_api.models.action_model import ActionModel
 from sgs_api.schemas.action_schema import ActionSchema
 
 ACTION_ENDPOINT = "/sgs_api/actions"
 
-class ActionResource(Resource):
+class ActionResource(ProtectedResource):
     def get(self, id=None):
         if not id:
             return self._get_all_actions(), 200

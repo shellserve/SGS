@@ -1,18 +1,19 @@
 #import logging
 
 from flask import request
-from flask_restful import Resource, abort
+from flask_restful import abort
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm.exc import NoResultFound
 
-from sgs_api.database import db 
+from sgs_api.database import db
+from sgs_api.auth import ProtectedResource 
 from sgs_api.models.project_model import ProjectModel
 from sgs_api.schemas.project_schema import ProjectSchema
 #Need to define an end point.
 PROJECT_ENDPOINT = "/sgs_api/projects"
 #logger = logging.getLogger(__name__)
 
-class ProjectResource(Resource):
+class ProjectResource(ProtectedResource):
     #this is the GET handler function. It is used to switch the incoming get to private handlers.
     def get(self, id=None):
         if not id:

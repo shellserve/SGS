@@ -22,6 +22,9 @@ from sgs_api.resources.action_resources import ActionResource, ACTION_ENDPOINT
         datefmt="%m-%d %H:%M",
         handlers=[logging.FileHandler("sgs_api.log"), logging.StreamHandler()],
     )"""
+
+
+
 def create_app(db_location):
     #A flask object is our webserver when the .run() method is run.
     #We are able to modify all configurable through the app.config dictonary object 
