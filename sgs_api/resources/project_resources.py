@@ -10,7 +10,7 @@ from sgs_api.auth import ProtectedResource
 from sgs_api.models.project_model import ProjectModel
 from sgs_api.schemas.project_schema import ProjectSchema
 #Need to define an end point.
-PROJECT_ENDPOINT = "/sgs_api/projects"
+PROJECT_ENDPOINT = "/apiv1/projects"
 #logger = logging.getLogger(__name__)
 
 class ProjectResource(ProtectedResource):

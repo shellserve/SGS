@@ -14,15 +14,12 @@ from sgs_api.models.user_model import UserModel
 from sgs_api.models.token_model import TokenModel
 from sgs_api.schemas.user_schema import UserSchema
 
-LOGIN_ENDPOINT = "/sgs_api/login"
-LOGOUT_ENDPOINT = "/sgs_api/logout"
-SIGNUP_ENDPOINT = "/sgs_api/signup"
+LOGIN_ENDPOINT = "/apiv1/login"
+LOGOUT_ENDPOINT = "/apiv1/logout"
+SIGNUP_ENDPOINT = "/apiv1/signup"
 DEV_TOKEN = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(248))
 #logger = logging.getLogger(__name__)
-class LoginResource(Resource):
-    def get(self, session=None):
-        pass
-    
+class LoginResource(Resource):  
     def post(self):
         request_json = request.get_json()
         if ('email' in request_json or 'name' in request_json) and 'password' in request_json:
@@ -60,9 +57,6 @@ class LogoutResource(ProtectedResource):
             return 201   
 
 class SignupResource(Resource):
-    def get(self, session=None):
-        pass
-    
     def post(self):
         request_json = request.get_json()
         request_json['password'] = generate_password_hash(request_json['password'])

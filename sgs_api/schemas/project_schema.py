@@ -1,7 +1,5 @@
 from marshmallow import Schema, fields, post_load
 from sgs_api.models.project_model import ProjectModel
-from sgs_api.schemas.user_schema import UserSchema
-
 class ProjectSchema(Schema):
     #Our schema extends the marshmallow library, 
     # this allows us to impement basic pre & post processing validation
@@ -9,7 +7,6 @@ class ProjectSchema(Schema):
     owner_id = fields.String(allow_none=False)
     name = fields.String(allow_none=False)
     objective = fields.String(allow_none=False)
-    
     #TODO Create feature to pull user_id from email field then append project record to User projects
     
     @post_load

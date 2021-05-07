@@ -8,7 +8,7 @@ from sgs_api.auth import ProtectedResource
 from sgs_api.models.plan_model import PlanModel
 from sgs_api.schemas.plan_schema import PlanSchema
 
-PLAN_ENDPOINT = "/sgs_api/plans"
+PLAN_ENDPOINT = "/apiv1/plans"
 
 class PlanResource(ProtectedResource):
     def get(self, id=None):
