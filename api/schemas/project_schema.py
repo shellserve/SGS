@@ -1,5 +1,5 @@
 from marshmallow import Schema, fields, post_load
-from sgs_api.models.project_model import ProjectModel
+from api.models.project_model import ProjectModel
 class ProjectSchema(Schema):
     #Our schema extends the marshmallow library, 
     # this allows us to impement basic pre & post processing validation

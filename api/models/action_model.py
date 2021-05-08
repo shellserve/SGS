@@ -1,4 +1,4 @@
-from sgs_api.database import db
+from api.database import db
 
 class ActionModel(db.Model):
     __tablename__ = 'actions'

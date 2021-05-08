@@ -1,6 +1,6 @@
 import uuid
 
-from sgs_api.database import db
+from api.database import db
 
 class TokenModel(db.Model):
     token_id = db.Column(db.Integer, primary_key=True)

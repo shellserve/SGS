@@ -7,20 +7,20 @@ sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 from flask import Flask
 from flask_restful import Api
 
-from sgs_api.database import db
-from sgs_api.constants import PROJECT_ROOT, PROJECT_DB
+from api.database import db
+from api.constants import PROJECT_ROOT, PROJECT_DB
 
-from sgs_api.resources.user_resources import LoginResource, LogoutResource, SignupResource, LOGIN_ENDPOINT, LOGOUT_ENDPOINT, SIGNUP_ENDPOINT
-from sgs_api.resources.project_resources import ProjectResource, PROJECT_ENDPOINT
-from sgs_api.resources.plan_resources import PlanResource, PLAN_ENDPOINT
-from sgs_api.resources.action_resources import ActionResource, ACTION_ENDPOINT
+from api.resources.user_resources import LoginResource, LogoutResource, SignupResource, LOGIN_ENDPOINT, LOGOUT_ENDPOINT, SIGNUP_ENDPOINT
+from api.resources.project_resources import ProjectResource, PROJECT_ENDPOINT
+from api.resources.plan_resources import PlanResource, PLAN_ENDPOINT
+from api.resources.action_resources import ActionResource, ACTION_ENDPOINT
 
 #TODO RE-Implement logging across different resource files.
 """    logging.basicConfig(
         level=logging.DEBUG,
         format="%(asctime)s %(levelname)-8s %(messages)s",
         datefmt="%m-%d %H:%M",
-        handlers=[logging.FileHandler("sgs_api.log"), logging.StreamHandler()],
+        handlers=[logging.FileHandler("api.log"), logging.StreamHandler()],
     )"""
 
 

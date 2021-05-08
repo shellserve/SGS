@@ -3,10 +3,10 @@ from flask_restful import abort
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm.exc import NoResultFound
 
-from sgs_api.database import db
-from sgs_api.auth import ProtectedResource
-from sgs_api.models.action_model import ActionModel
-from sgs_api.schemas.action_schema import ActionSchema
+from api.database import db
+from api.auth import ProtectedResource
+from api.models.action_model import ActionModel
+from api.schemas.action_schema import ActionSchema
 
 ACTION_ENDPOINT = "/apiv1/actions"
 

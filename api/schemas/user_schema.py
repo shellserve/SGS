@@ -1,5 +1,5 @@
 from marshmallow import Schema, fields, post_load
-from sgs_api.models.user_model import UserModel
+from api.models.user_model import UserModel
 
 class UserSchema(Schema):
     player_id = fields.Integer()

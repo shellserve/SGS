@@ -3,10 +3,10 @@ from flask_restful import abort
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm.exc import NoResultFound
 
-from sgs_api.database import db
-from sgs_api.auth import ProtectedResource
-from sgs_api.models.plan_model import PlanModel
-from sgs_api.schemas.plan_schema import PlanSchema
+from api.database import db
+from api.auth import ProtectedResource
+from api.models.plan_model import PlanModel
+from api.schemas.plan_schema import PlanSchema
 
 PLAN_ENDPOINT = "/apiv1/plans"
 

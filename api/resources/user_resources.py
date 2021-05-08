@@ -8,11 +8,11 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm.exc import NoResultFound
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from sgs_api.database import db 
-from sgs_api.auth import ProtectedResource
-from sgs_api.models.user_model import UserModel 
-from sgs_api.models.token_model import TokenModel
-from sgs_api.schemas.user_schema import UserSchema
+from api.database import db 
+from api.auth import ProtectedResource
+from api.models.user_model import UserModel 
+from api.models.token_model import TokenModel
+from api.schemas.user_schema import UserSchema
 
 LOGIN_ENDPOINT = "/apiv1/login"
 LOGOUT_ENDPOINT = "/apiv1/logout"

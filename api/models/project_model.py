@@ -1,4 +1,4 @@
-from sgs_api.database import db
+from api.database import db
 
 class ProjectModel(db.Model):
     #if you know sql this is very similar to that

@@ -1,5 +1,5 @@
 from flask_login import UserMixin
-from sgs_api.database import db
+from api.database import db
 
 class UserModel(UserMixin, db.Model):
     __tablename__ = 'users'

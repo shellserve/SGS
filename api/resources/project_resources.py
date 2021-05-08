@@ -5,10 +5,10 @@ from flask_restful import abort
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm.exc import NoResultFound
 
-from sgs_api.database import db
-from sgs_api.auth import ProtectedResource 
-from sgs_api.models.project_model import ProjectModel
-from sgs_api.schemas.project_schema import ProjectSchema
+from api.database import db
+from api.auth import ProtectedResource 
+from api.models.project_model import ProjectModel
+from api.schemas.project_schema import ProjectSchema
 #Need to define an end point.
 PROJECT_ENDPOINT = "/apiv1/projects"
 #logger = logging.getLogger(__name__)
