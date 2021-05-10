@@ -1,11 +1,9 @@
 from marshmallow import Schema, fields, post_load
-<<<<<<< HEAD:api/schemas/project_schema.py
-from api.models.project_model import ProjectModel
-=======
+
+from sgs_api.models.project_model import ProjectModel
 from sgs_api.models.project_model import ProjectModel
 from sgs_api.schemas.user_schema import UserSchema
 
->>>>>>> parent of 0862c3f (Cleaned Up the Model relationships):sgs_api/schemas/project_schema.py
 class ProjectSchema(Schema):
     #Our schema extends the marshmallow library, 
     # this allows us to impement basic pre & post processing validation

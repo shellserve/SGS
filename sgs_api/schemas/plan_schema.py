@@ -1,6 +1,6 @@
 from marshmallow import Schema, fields, post_load
-from api.models.plan_model import PlanModel
-from api.schemas.project_schema import ProjectSchema
+from sgs_api.models.plan_model import PlanModel
+from sgs_api.schemas.project_schema import ProjectSchema
 
 class PlanSchema(Schema):
     plan_id = fields.Integer()

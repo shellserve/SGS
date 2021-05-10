@@ -1,7 +1,7 @@
 from functools import wraps
 from flask import request
 from flask_restful import Resource
-from api.models.token_model import TokenModel
+from sgs_api.models.token_model import TokenModel
 
 def authenticate(func):
     @wraps(func)

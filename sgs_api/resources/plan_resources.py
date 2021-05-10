@@ -3,12 +3,12 @@ from flask_restful import abort
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm.exc import NoResultFound
 
-from api.database import db
-from api.auth import ProtectedResource
-from api.models.plan_model import PlanModel
-from api.schemas.plan_schema import PlanSchema
+from sgs_api.database import db
+from sgs_api.auth import ProtectedResource
+from sgs_api.models.plan_model import PlanModel
+from sgs_api.schemas.plan_schema import PlanSchema
 
-PLAN_ENDPOINT = "/sgs_api/plans"
+PLAN_ENDPOINT = "/api/plans"
 
 class PlanResource(ProtectedResource):
     def get(self, id=None):

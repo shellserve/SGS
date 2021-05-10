@@ -8,15 +8,15 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm.exc import NoResultFound
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from api.database import db 
-from api.auth import ProtectedResource
-from api.models.user_model import UserModel 
-from api.models.token_model import TokenModel
-from api.schemas.user_schema import UserSchema
+from sgs_api.database import db 
+from sgs_api.auth import ProtectedResource
+from sgs_api.models.user_model import UserModel 
+from sgs_api.models.token_model import TokenModel
+from sgs_api.schemas.user_schema import UserSchema
 
-LOGIN_ENDPOINT = "/sgs_api/login"
-LOGOUT_ENDPOINT = "/sgs_api/logout"
-SIGNUP_ENDPOINT = "/sgs_api/signup"
+LOGIN_ENDPOINT = "/api/login"
+LOGOUT_ENDPOINT = "/api/logout"
+SIGNUP_ENDPOINT = "/api/signup"
 DEV_TOKEN = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(248))
 #logger = logging.getLogger(__name__)
 class LoginResource(Resource):
