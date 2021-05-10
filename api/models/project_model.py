@@ -7,8 +7,8 @@ class ProjectModel(db.Model):
     owner_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable=False)
     name = db.Column(db.String(100))
     objective = db.Column(db.String(1000))
-    plans = db.relationship('PlanModel', backref='project')
     
+    plan = db.relationship("PlanModel")
     #__repr__ can be called just to get a quick glance at the model variables
     def __repr__(self):
         return (

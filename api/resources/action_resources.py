@@ -8,7 +8,7 @@ from api.auth import ProtectedResource
 from api.models.action_model import ActionModel
 from api.schemas.action_schema import ActionSchema
 
-ACTION_ENDPOINT = "/apiv1/actions"
+ACTION_ENDPOINT = "/sgs_api/actions"
 
 class ActionResource(ProtectedResource):
     def get(self, id=None):

@@ -8,6 +8,8 @@ class ActionModel(db.Model):
     responsible_party = db.Column(db.String(100), nullable=False)
     start_date = db.Column(db.String(20), nullable=False)
     end_date = db.Column(db.String(20), nullable=False)
+    
+    plan = db.relationship('PlanModel')
 
     def __repr__(self):
         return (

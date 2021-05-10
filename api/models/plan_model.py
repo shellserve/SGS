@@ -6,7 +6,10 @@ class PlanModel(db.Model):
     owner_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable=False)
     project_id = db.Column(db.Integer, db.ForeignKey('projects.project_id'), nullable=False)
     goal = db.Column(db.String(1000), nullable=False)
-    actions = db.relationship('ActionModel', backref='plan')
+    
+    owner = db.relationship("UserModel")
+    project = db.relationship("ProjectModel")
+    
     def __repr__(self):
         return (
             f"***Plan***\n"
